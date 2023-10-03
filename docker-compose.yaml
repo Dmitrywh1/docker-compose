@@ -7,9 +7,9 @@ services:
     container_name: app-build
   app-run:
     build:
-      context: ./app-run
+      context: ./prod
       dockerfile: Dockerfile
-    container_name: app-run
+    container_name: prod
     depends_on:
       - app-build
     ports:
