@@ -6,17 +6,6 @@ services:
       dockerfile: Dockerfile
     container_name: app-build
     volumes:
-      - tomcat-webapps:/opt/tomcat/webapps/
-  app-run:
-    build:
-      context: ./app-run
-      dockerfile: Dockerfile
-    container_name: app-run
-    depends_on:
-      - app-build
-    ports:
-      - "8087:8080"
-    volumes:
-      - tomcat-webapps:/opt/tomcat/webapps/
+      - ./tomcat-webapps:/opt/tomcat/webapps/
 volumes:
   tomcat-webapps:
