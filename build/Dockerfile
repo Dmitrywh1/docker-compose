@@ -11,6 +11,6 @@ ENV PATH $CATALINA_HOME/bin:$PATH
 RUN git clone https://github.com/yankils/hello-world.git
 RUN cd hello-world/ && mvn package
 RUN cp hello-world/webapp/target/webapp.war /opt/tomcat/webapps/
-COPY --from=first /opt/tomcat /home/dmitry/lesson/docker-compose/tomcat/
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
+COPY --from=first /opt/tomcat /home/dmitry/lesson/docker-compose/tomcat/
