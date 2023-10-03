@@ -1,4 +1,4 @@
-FROM ubuntu:18.04 AS first
+FROM ubuntu:18.04
 RUN apt-get update && apt-get install -y wget
 RUN apt install maven -y
 RUN apt install openjdk-11-jdk -y
@@ -13,4 +13,4 @@ RUN cd hello-world/ && mvn package
 RUN cp hello-world/webapp/target/webapp.war /opt/tomcat/webapps/
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
-
+COPY --from=0 /opt/tomcat /home/dmitry/lesson/docker-compose/tomcat/
