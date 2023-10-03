@@ -1,19 +1,22 @@
-version: '3'
+version: '3.8'
 services:
-  building:
-    build: .
-    ports:
-      - "8060:8080"
+  app-build:
+    build:
+      context: ./build
+      dockerfile: build/Dockerfile
+    container_name: app-build
     volumes:
-      - tomcat_data:/opt/tomcat
-  alpine:
-    image: alpine
-    ports:
-      - "8050:8080"
-    volumes:
-      - tomcat_data:/opt/tomcat
-    command: sh -c "apk add openjdk11 && /opt/tomcat/bin/catalina.sh run"
+      - tomcat-webapps:/opt/tomcat/webapps/
+  app-run:
+    build:
+      context: ./app-run
+      dockerfile: app-run/Dockerfile
+    container_name: app-run
     depends_on:
-      - building
+      - app-build
+    ports:
+      - "8087:8080"
+    volumes:
+      - tomcat-webapps:/opt/tomcat/webapps/
 volumes:
-  tomcat_data:
+  tomcat-webapps:
