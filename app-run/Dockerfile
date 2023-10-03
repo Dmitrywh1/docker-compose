@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:latest
 RUN apk update && apk add openjdk11-jre
 RUN mkdir -p /opt/tomcat/webapps/
 COPY --from=app-build /opt/tomcat /opt/tomcat/
