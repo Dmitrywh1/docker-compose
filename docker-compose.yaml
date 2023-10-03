@@ -1,0 +1,17 @@
+version: '3'
+services:
+  building:
+    build: .
+    ports:
+      - "8060:8080"
+    volumes:
+      - tomcat_data:/opt/tomcat
+  alpine:
+    image: alpine
+    volumes:
+      - tomcat_data:/opt/tomcat
+    command: sh -c "apk add openjdk11 && /opt/tomcat/bin/catalina.sh run"
+    depends_on:
+      - building
+volumes:
+  tomcat_data:
