@@ -1,16 +1,16 @@
-version: '3.8'
+version: '3'
 services:
-  app-build:
+  build:
     build:
       context: ./build
       dockerfile: Dockerfile
-    container_name: app-build
-  app-run:
+    image: build
+  prod:
     build:
-      context: ./prod
+      context: .
       dockerfile: Dockerfile
-    container_name: prod
-    depends_on:
-      - app-build
+    image: prod
     ports:
-      - "8087:8080"
+      - "8080:8080"
+    depends_on:
+      - build
