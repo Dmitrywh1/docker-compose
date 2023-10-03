@@ -3,14 +3,14 @@ services:
   app-build:
     build:
       context: ./build
-      dockerfile: build/Dockerfile
+      dockerfile: Dockerfile
     container_name: app-build
     volumes:
       - tomcat-webapps:/opt/tomcat/webapps/
   app-run:
     build:
       context: ./app-run
-      dockerfile: app-run/Dockerfile
+      dockerfile: Dockerfile
     container_name: app-run
     depends_on:
       - app-build
