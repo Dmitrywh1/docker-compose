@@ -13,4 +13,4 @@ RUN cd hello-world/ && mvn package
 RUN cp hello-world/webapp/target/webapp.war /opt/tomcat/webapps/
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
-COPY --from=0 /opt/tomcat /home/dmitry/lesson/docker-compose/tomcat/
+COPY --from= /opt/tomcat /home/dmitry/lesson/docker-compose/tomcat/

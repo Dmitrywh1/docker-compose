@@ -1,9 +1,18 @@
 version: '3.8'
 services:
-  app:
+  app-build:
     build:
       context: ./build
       dockerfile: Dockerfile
     container_name: app-build
+    volumes:
+      - tomcat-webapps:/opt/tomcat/webapps/
+  app-run:
+    build:
+      context: ./app-run
+      dockerfile: Dockerfile
+    container_name: app-run
+    depends_on:
+      - app-build
     ports:
-      - 8043:8080
+      - "8087:8080"
