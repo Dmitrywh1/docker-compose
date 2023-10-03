@@ -7,7 +7,7 @@ services:
     image: build
   prod:
     build:
-      context: .
+      context: ./prod
       dockerfile: Dockerfile
     image: prod
     ports:
