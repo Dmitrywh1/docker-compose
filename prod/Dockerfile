@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM tomcat
 RUN apt-get update
 RUN apt install openjdk-11-jdk -y
 COPY --from=app-build /opt/tomcat /home/dmitry/lesson/docker-compose/tomcat/
