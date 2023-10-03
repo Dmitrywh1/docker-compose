@@ -7,5 +7,3 @@ services:
     container_name: app-build
     ports:
       - 8043:8080
-    volumes:
-      - './tomcat:/opt/tomcat'
