@@ -1,4 +1,5 @@
 FROM ubuntu:18.04
+RUN apt update
 RUN mkdir /opt/tomcat
 COPY --from=build /opt/tomcat /opt/tomcat
 RUN apt install openjdk-11-jdk -y
