@@ -7,5 +7,3 @@ services:
     container_name: app-build
     volumes:
       - ./tomcat-webapps:/opt/tomcat/webapps/
-volumes:
-  tomcat-webapps:
