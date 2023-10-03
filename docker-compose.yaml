@@ -5,8 +5,6 @@ services:
       context: ./build
       dockerfile: Dockerfile
     container_name: app-build
-    volumes:
-      - tomcat-webapps:/opt/tomcat/webapps/
   app-run:
     build:
       context: ./app-run
