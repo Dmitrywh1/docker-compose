@@ -1,5 +1,4 @@
-FROM alpine:latest
-RUN apk add --no-cache openjdk11-jre-headless
+FROM adoptopenjdk/openjdk11:alpine-jre
 RUN mkdir /opt/tomcat
 COPY --from=build /opt/tomcat /opt/tomcat
 ENV CATALINA_HOME /opt/tomcat
