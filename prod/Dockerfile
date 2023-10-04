@@ -1,4 +1,4 @@
-FROM alpine:3.14
+FROM alpine:latest
 RUN apk update && apk add openjdk11
 RUN mkdir /opt/tomcat
 COPY --from=build /opt/tomcat /opt/tomcat
