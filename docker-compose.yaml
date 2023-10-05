@@ -8,10 +8,7 @@ services:
     volumes:
       - app-data:/opt/tomcat/webapps
   prod:
-    build:
-      context: ./prod
-      dockerfile: Dockerfile
-    image: prod
+    image: tomcat:9.0.8-jre8-alpine
     ports:
       - "8095:8080"
     depends_on:
