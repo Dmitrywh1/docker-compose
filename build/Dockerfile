@@ -11,6 +11,5 @@ ENV PATH $CATALINA_HOME/bin:$PATH
 RUN git clone https://github.com/yankils/hello-world.git
 RUN cd hello-world/ && mvn package
 RUN cp hello-world/webapp/target/webapp.war /opt/tomcat/webapps/
-EXPOSE 8080
-CMD ["catalina.sh", "run"]
+
 
