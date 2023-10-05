@@ -5,6 +5,8 @@ services:
       context: ./build
       dockerfile: Dockerfile
     image: build
+    volumes:
+      - app-data:/opt/tomcat/webapps
   prod:
     build:
       context: ./prod
@@ -14,3 +16,7 @@ services:
       - "8095:8080"
     depends_on:
       - build
+    volumes:
+      - app-data:/usr/local/tomcat/webapps
+volumes:
+  app-data: {}
